@@ -52,6 +52,7 @@ int zmk_hid_unregister_mod(zmk_mod_t modifier) {
         LOG_DBG("Modifier %d released", modifier);
         WRITE_BIT(explicit_modifiers, modifier, false);
     }
+    zmk_mod_flags_t current = GET_MODIFIERS;
     SET_MODIFIERS(explicit_modifiers);
     return 0;
 }
