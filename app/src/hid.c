@@ -140,7 +140,7 @@ int zmk_hid_implicit_modifiers_press(zmk_mod_flags_t new_implicit_modifiers) {
     implicit_modifiers = new_implicit_modifiers;
     zmk_mod_flags_t current = GET_MODIFIERS;
     SET_MODIFIERS(explicit_modifiers);
-    return 0;
+    return current == GET_MODIFIERS ? 0 : 1;
 }
 
 int zmk_hid_implicit_modifiers_release() {
