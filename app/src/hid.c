@@ -38,7 +38,7 @@ int zmk_hid_register_mod(zmk_mod_t modifier) {
     WRITE_BIT(explicit_modifiers, modifier, true);
     zmk_mod_flags_t current = GET_MODIFIERS;
     SET_MODIFIERS(explicit_modifiers);
-    return 0;
+    return current == GET_MODIFIERS ? 0 : 1;
 }
 
 int zmk_hid_unregister_mod(zmk_mod_t modifier) {
