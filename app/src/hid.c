@@ -138,6 +138,7 @@ static inline int deselect_keyboard_usage(zmk_key_t usage) {
 
 int zmk_hid_implicit_modifiers_press(zmk_mod_flags_t new_implicit_modifiers) {
     implicit_modifiers = new_implicit_modifiers;
+    zmk_mod_flags_t current = GET_MODIFIERS;
     SET_MODIFIERS(explicit_modifiers);
     return 0;
 }
