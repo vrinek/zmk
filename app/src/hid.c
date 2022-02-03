@@ -68,12 +68,14 @@ int zmk_hid_register_mods(zmk_mod_flags_t modifiers) {
 }
 
 int zmk_hid_unregister_mods(zmk_mod_flags_t modifiers) {
+    int ret = 0;
     for (zmk_mod_t i = 0; i < 8; i++) {
         if (modifiers & (1 << i)) {
-            zmk_hid_unregister_mod(i);
+            ret += zmk_hid_unregister_mod(i);
         }
     }
-    return 0;
+
+    return ret;
 }
 
 #if IS_ENABLED(CONFIG_ZMK_HID_REPORT_TYPE_NKRO)
