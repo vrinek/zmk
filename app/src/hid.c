@@ -28,6 +28,8 @@ static zmk_mod_flags_t masked_modifiers = 0;
         LOG_DBG("Modifiers set to 0x%02X", keyboard_report.body.modifiers);                        \
     }
 
+#define GET_MODIFIERS (keyboard_report.body.modifiers)
+
 zmk_mod_flags_t zmk_hid_get_explicit_mods() { return explicit_modifiers; }
 
 int zmk_hid_register_mod(zmk_mod_t modifier) {
